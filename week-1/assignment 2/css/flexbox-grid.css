@@ -1,0 +1,163 @@
+.nav-bar {
+  margin-right: auto;
+}
+
+input,
+button {
+  margin: auto
+}
+
+.main-header,
+.sub-title,
+.text,
+.col,
+.links-container,
+.foot-bar,
+.terms,
+.subscribe,
+.language-terms {
+  display: flex;
+}
+
+.main-header {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.searchbox-container {
+  display: flex;
+}
+
+.sub-title{
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-1-sub-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: auto;
+  grid-gap: 2.5em;
+}
+
+.col {
+  flex-direction: column;
+  flex:1
+}
+
+.text {
+  flex-direction: column;
+  margin: 0;
+  background-color: white;
+  justify-content: space-between;
+  height: 100%
+}
+
+.text-button{
+  margin-top: auto;
+}
+
+.section-2-sub-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin: auto;
+  grid-gap: 2.5em;
+}
+
+.foot-box {
+  flex:1
+}
+
+.foot-bar {
+  flex-direction: column
+}
+
+.google-developers {
+  background-color: #37424b;
+}
+
+.terms {
+  align-items: center;
+  background-color: #4e6070;
+}
+
+.terms-privacy {
+  margin-right: auto;
+}
+
+.terms-privacy li {
+  display: inline-block;
+}
+
+.terms p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: white;
+}
+
+.terms a {
+  text-decoration: none;
+}
+
+.subscribe a  {
+  color: white;
+  font-size: 14px;
+  background-color: #039bef;
+  align-self: center;
+  padding: 10px 15.5px 10px 15.5px;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,0.2)
+}
+
+.subscribe p {
+  margin: auto 1em;
+}
+
+.language-terms {
+  margin-right: auto;
+  align-items: center;
+}
+
+/* Media Queries */
+
+@media (max-width: 1000px) {
+  .links-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  span {
+    margin-right: auto;
+  }
+  
+  .sub-title {
+    flex-direction: column;
+    align-items: flex-start
+  }
+
+  .section-1-sub-container,
+  .section-2-sub-container {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+  }
+
+  .links-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  
+  .terms {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+  }
+
+  .subscribe {
+    flex-direction: row-reverse;
+  }
+}
