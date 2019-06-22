@@ -1,0 +1,168 @@
+/* Imports */
+
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Kalam|Lobster|Permanent+Marker&display=swap');
+
+/* Base Elements Styles */
+* {
+  box-sizing:border-box;
+  font-family: sans-serif;
+}
+
+body {
+margin: 0;
+}
+
+h1 {
+  margin-top: 0;
+  font-family: permanent marker; 
+  font-size: 3em;
+}
+
+h1,
+.tagline {
+  color: white;
+}
+
+h2 {
+  font-size: 1.35em;
+  text-align: center;
+  margin: 1.5em 0;
+  text-decoration: underline; 
+}
+
+h3 {
+  font-size: 1.25em;
+  text-align: center;
+  color: white;
+  text-decoration: bold;
+}
+
+p {
+  font-size: 1em;
+  text-align: center;
+  text-decoration: underline;
+  font-family: indie flower;
+  color: white
+}
+
+ul,
+li a {
+  display: none;
+  list-style: none;
+  text-decoration: none;
+  color: rgb(78, 77, 77)
+}
+
+img {
+  max-width: 100%;
+}
+
+footer {
+  text-align: center;
+  padding: 1em 0;
+  background-color: rgb(223, 223, 223)
+}
+
+/* Base Layout Styles */
+
+.main-header {
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  background-color: #fff
+}
+
+.tagline {
+  font-family: kalam;
+}
+
+.logo {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.name,
+.name a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: rgb(78, 77, 77);
+  padding-top: 0.6em;
+}
+
+.nav-bar {
+  width: 2rem;
+  height: 2rem;
+}
+
+.banner {
+  background-color: black;
+  text-align: center;
+  padding: 5em 0;
+  background: url("../img/title-background.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.col {
+  padding: 2em;
+  background-color: rgb(165, 165, 165);
+  border-radius: 0.35em;
+  margin: 0 5% 2em;
+}
+
+.first {
+  background: linear-gradient(rgb(165, 165, 165),transparent 90%), 
+  url("../img/restaurant.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.second {
+  background: linear-gradient(rgb(165, 165, 165),transparent 90%), 
+  url("../img/games.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.third {
+  background: linear-gradient(rgb(165, 165, 165),transparent 90%), 
+  url("../img/party.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.fourth {
+  background: linear-gradient(rgb(165, 165, 165),transparent 90%), 
+  url("../img/gathering.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.action-bar {
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+	text-align: center;
+	padding: .625em 1.25em;
+	background: #000000;
+  border-radius: .35em;
+  margin-bottom: 1.35em;
+}
+
+.button a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Pseudo Classes Layout */
+li a:hover{
+  color: rgb(180, 8, 8);
+}
+
+.button:hover{
+  background-color:rgb(180, 8, 8);
+}
+
+/* Media Queries */
+
+@media (min-width:1200px) {
+  .col{
+    max-width: 600px;
+  }
+}
