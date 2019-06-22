@@ -27,7 +27,7 @@
   transition: 0.3s;
 }
 
-.side-nav a:hover {
+.side-nav .btn-close:hover {
   color: #ffffff
 }
 
@@ -36,6 +36,11 @@
   top: 0;
   right: 0.25em;
   font-size: 30px;
+}
+
+.nav-list a:hover {
+  background-color: #ffffff;
+  margin-top: 1em;
 }
 
 .body {

@@ -15,13 +15,43 @@ console.log(max(1,2,4,5));
 console.log(max(5, 2, 7, 1, 6));
 
 // Assignment 2: Object
-// Method 1:
+// Method 1 (Bracket Syntacting Sugar):
 
+let args1 = {
+  n1:11,
+  n2:23,
+  op:'+'
+}
 
+// Method 2 (Class Syntax):
 
-// Method 2:
+class myObject {
+  constructor(n1,n2,op) {
+    this.n1 = n1,
+    this.n2 = n2,
+    this.op = op;
+  }
+}
 
+let args2 = new myObject(1,2,"+")
 
+// Method 3 (Singleton Pattern):
+
+let arg3 = new () => {
+  this.n1 = 11,
+  this.n2 = 7,
+  this.op = '-',
+}
+
+// Method 4 (Function Constructor):
+
+const arg = function(n1,n2,op) {
+  this.n1 = n1;
+  this.n2 = n2;
+  this.op = op;
+}
+
+let arg4 = new arg(2,3,'+')
 
 // Assignment 3: Function, Array, and Object
 
