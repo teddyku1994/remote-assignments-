@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
+        // 1. create XMLHTTP Request object
         const myRequest = new XMLHttpRequest();
+        // 2. create callback function
         myRequest.onreadystatechange = function() {
             if (myRequest.readyState === 4)
         if (myRequest.status === 200) {
@@ -15,11 +17,18 @@
             alert(myRequest.statusText)
         }
     }
-    myRequest.open('GET', '/getData?number=10', true)
-    function calculate(){
+    function calculate() {
+        let numberInput = document.getElementById("numbers").value;
+        let url ="/getData";
+        if (numberInput !== ''){
+            url+= "?number="
+        }
+    // 3. open request
+        myRequest.open('GET', url + numberInput, true)
+    //4. send a request through onclick function
         myRequest.send();
         console.log(document.getElementById('result').innerHTML)
-    }
+    };
     </script>
 </head>
 <body>
@@ -29,8 +38,8 @@
         <p>In put the number below to find out the partial sum to the given number!</p>
         <form action="/getData", method="GET">
             <input placeholder="Number" id='numbers' name='number'>
-            <button type='submit' id='submit' onclick="calculate()">Submit</button>
         </form>
+            <button type='submit' id='submit' onclick="calculate()">Submit</button>
         <div>
             <div class="resultContainer">
                 <p id="result">Answer</p>

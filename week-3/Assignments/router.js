@@ -11,14 +11,15 @@ const calc = (num) => {
 }
 
 router.get('/getData', (req, res) => {
+    const {number} = req.query;
     let num = req.query.number;
     let ans = calc(num);
     if (num === undefined) {
-        res.send('<h1>Lack of Parameter</h1>'); 
+        res.send('<h3>Lack of Parameter</h3>'); 
     } else if (parseInt(ans) > 0) {
-        res.send(`<h1> The Answer: ${ans}</h1>`);
-    } else {
-        res.send('<h1>Wrong Parameter</h1>')
+        res.send(`<h3> The Answer: ${ans}</h3>`);
+    } else if (parseInt(ans) <= 0) {
+        res.send('<h3>Wrong Parameter</h3>')
     }
 })
 
