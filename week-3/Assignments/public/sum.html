@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        const myRequest = new XMLHttpRequest();
+        myRequest.onreadystatechange = function() {
+            if (myRequest.readyState === 4)
+        if (myRequest.status === 200) {
+            document.getElementById('result').innerHTML = myRequest.response;
+        } else {
+            alert(myRequest.statusText)
+        }
+    }
+    myRequest.open('GET', '/getData?number=10', true)
+    function calculate(){
+        myRequest.send();
+        console.log(document.getElementById('result').innerHTML)
+    }
+    </script>
+</head>
+<body>
+    <h1>Partial Sum</h1>
+    <hr/>
+    <main>
+        <p>In put the number below to find out the partial sum to the given number!</p>
+        <form action="/getData", method="GET">
+            <input placeholder="Number" id='numbers' name='number'>
+            <button type='submit' id='submit' onclick="calculate()">Submit</button>
+        </form>
+        <div>
+            <div class="resultContainer">
+                <p id="result">Answer</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

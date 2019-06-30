@@ -1,0 +1,14 @@
+html(lang="en")
+    head
+        title Ted's Server
+    body
+        h1 Ted's Server
+        if name
+            h2 Hi #{name}!
+            form(action='/logout', method='post')
+                button(type='submit') Log Out
+        else
+            form(action='/myName', method='POST')
+                label Please enter your name in the text-bar:  
+                    input(type="text", name='username')
+                button(type='submit') Submit
