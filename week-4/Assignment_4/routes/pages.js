@@ -52,20 +52,61 @@ router.post('/register', (req, res, next) => {
         password: req.body.password
     };
     const { username, email, password} = req.body;
+
     user.create(userInput, function(lastId) {
         if(!username || !email || !password) {
             res.render('index-fail2')
         } else {
-            if(lastId) {
-                user.find(lastId, function(result) {
-                    req.session.user = result;
-                    req.session.opp = 0;
-                    res.redirect('/home');
-                });
-
-            }else {
-                console.log('Error creating a new user ...');
+          let sqlCheck = "SELECT * FROM users WHERE username = ?"
+          pool.query(sqlCheck, username, function(err, result) {
+          if(err){
+              callback(err)
             }
+
+          if(result.length > 1){
+            let sql = "DELETE FROM users WHERE id = ? "
+            let id = result[1].id
+            pool.query(sql, id, function(err, result){
+                if(err) {
+                    throw err;
+                }
+                console.log ("Number of records deleted: " + result.affectedRows)
+            })  
+            res.render('index-fail3')
+            } else {
+              let sqlCheck2 ="SELECT * FROM users WHERE email = ?"
+              pool.query(sqlCheck2, email, function(error, results){
+                if(error){
+                  callback(error)
+                }
+                if(results.length > 1) {
+                    let sql2 = "DELETE FROM users WHERE id = ? ";
+                    let id2 = results[1].id
+                    pool.query(sql2, id2, function(err, result){
+                        if(err){
+                            throw err;
+                        } else {
+                            console.log("Number of records deleted: " + result.affectedRows)
+                        }
+                    })
+                    res.render('index-fail4');
+                } else {
+                  if(lastId) {
+                    user.find(lastId, function(result) {
+                        req.session.user = result;
+                        req.session.opp = 0;
+                        res.redirect('/home');
+                        
+                    });
+    
+                } else {
+                  console.log('Error creating a new user ...');
+              }
+                }
+              })
+              
+            }
+          })
         }
     });
 
