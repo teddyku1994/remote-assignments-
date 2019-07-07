@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment 2</title>
+</head>
+
+<body>
+    <h1>Assignment 2</h2>
+    <hr/>
+    <p>Below is the response data:</p>
+    <div id="div1">
+        <p id="test"></p>
+    </div>
+
+    <script>
+        // Answer for Assignment 2
+
+        function ajax(url, callback) {
+            let xhr = new XMLHttpRequest();
+            // convert json into plain text
+            xhr.overrideMimeType("application/json");
+            xhr.open('GET', url, true); 
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == "200") {
+                callback(xhr.responseText);
+                }
+            };
+            xhr.send(null); 
+         }
+
+        function render(data) {
+            var newItem = document.createElement("DIV");
+            var data = document.createTextNode(data);
+            newItem.appendChild(data);
+
+            var div = document.getElementById("div1");
+            div.insertBefore(newItem, div.childNodes[0]);
+            }
+
+        ajax("products.json", function(response) {
+            // modify your response
+            render(response);
+        });
+    </script>
+</body>
+</html>
