@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Assignment 2</title>
+</head>
+<body>
+    <h1>Assignment 2</h2>
+        <hr/>
+        <p>Below is the response data:</p>
+        <div id="div1">
+        </div>
+
+  <script>
+    function ajax(url, callback){
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+
+      xhr.onload = function(){
+        if(this.status == 200){
+          var users = JSON.parse(this.responseText);
+          
+          var output = '';
+          
+          for(var i in users){
+            output += '<ul>' +
+              '<li>name: '+users[i].name+'</li>' +
+              '<li>price: '+users[i].price+'</li>' +
+              '<li>description: '+users[i].description+'</li>' +
+              '</ul>';
+          }
+
+          callback(output);
+        }
+      }
+
+      xhr.send();
+    }
+
+    function render(data) {     
+            var products = document.createElement("DIV");
+            products.innerHTML = data;
+            document.getElementById("div1").appendChild(products);
+            };
+
+    ajax('users.json', function(res){
+      render(res);
+    })
+
+  </script>
+</body>
+</html>
