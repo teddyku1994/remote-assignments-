@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    title Login Page
+  body
+
+    form(action='/login', method='post')
+
+      p User Login
+      p Username:
+      input(type='text',name='username')
+      p Password:
+      input(type='text',name='password')
+      br
+      input(type='submit',value='登录')
+      br
+    a(href='/registerpage', title='register') Register
